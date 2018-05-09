@@ -1,0 +1,43 @@
+{
+  "name": "btree-ts",
+  "version": "1.0.0",
+  "description": "Generic B-Tree implementation",
+  "main": "dist/btree.umd.js",
+  "module": "dist/btree.esm.js",
+  "types": "types/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "test": "npm run build && mocha --opts tests/mocha.opts",
+    "build": "rollup -c rollup.config.js",
+    "types": "tsc -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w8r/b-tree.git"
+  },
+  "keywords": [
+    "b-tree"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w8r/b-tree/issues"
+  },
+  "homepage": "https://github.com/w8r/b-tree#readme",
+  "devDependencies": {
+    "@types/node": "^10.0.6",
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "rollup": "^0.58.2",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-virtual": "^1.0.1",
+    "typescript": "^2.8.3"
+  }
+}
