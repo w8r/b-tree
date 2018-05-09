@@ -87,6 +87,11 @@ export default class BTree<Key,Value> {
     return this;
   }
 
+  height():number {
+    if (this.root === null) return 0;
+    return this.root.height();
+  }
+
   keys(): Array<Key>  {
     const keys:Array<Key> = [];
     this.traverse((key:Key) => keys.push(key));

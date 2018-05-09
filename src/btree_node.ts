@@ -419,4 +419,16 @@ export default class BTreeNode<Key, Value> {
     this.n--;
     return;
   }
+
+
+  height():number {
+    if (this.leaf) return 1;
+    else {
+      let h = 0;
+      for (let i = 0; i < this.n; i++) {
+        h = Math.max(h, this.C[i].height());
+      }
+      return h + 1;
+    }
+  }
 };

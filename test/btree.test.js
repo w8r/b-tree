@@ -44,6 +44,21 @@ describe('B-Tree', () => {
     const keys = new Array(100).fill(0).map((_, i) => i);
     const values = keys.slice().reverse();
 
+    keys.push(50);
+    values.push(50);
+
     for (let i = 0; i < keys.length; i++) t.insert(keys[i], values[i]);
+
+    let i = 0;
+    t.traverse((k, v) => {
+      if (i === 50) {
+        assert.equal(k, 50);
+        assert.equal(v, 49);
+      } else if (i === 51) {
+        assert.equal(k, 50);
+        assert.equal(v, 50);
+      }
+      i++;
+    });
   });
 });

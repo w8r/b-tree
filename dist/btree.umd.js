@@ -375,6 +375,17 @@
             this.n--;
             return;
         };
+        BTreeNode.prototype.height = function () {
+            if (this.leaf)
+                return 1;
+            else {
+                var h = 0;
+                for (var i = 0; i < this.n; i++) {
+                    h = Math.max(h, this.C[i].height());
+                }
+                return h + 1;
+            }
+        };
         return BTreeNode;
     }());
 
@@ -453,6 +464,11 @@
                     this.root = this.root.C[0];
             }
             return this;
+        };
+        BTree.prototype.height = function () {
+            if (this.root === null)
+                return 0;
+            return this.root.height();
         };
         BTree.prototype.keys = function () {
             var keys = [];
