@@ -15,6 +15,7 @@
   "scripts": {
     "test": "npm run build && mocha --opts tests/mocha.opts",
     "build": "rollup -c rollup.config.js",
+    "prepublish": "npm run build",
     "types": "tsc -d"
   },
   "repository": {
